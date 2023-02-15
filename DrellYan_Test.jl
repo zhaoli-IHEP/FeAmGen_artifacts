@@ -60,11 +60,11 @@ check_consistency: true
 
 for nloop in [0,1,2]
 
-  open( "dy_seed_proc_$(nloop)Loop.yaml", "w" ) do infile
+  open( "seed_dy_proc_$(nloop)Loop.yaml", "w" ) do infile
     write( infile, generic_dy_seed_proc_yaml_str(nloop=nloop) )
   end # close
 
-  digest_seed_proc( "dy_seed_proc_$(nloop)Loop.yaml" )
+  digest_seed_proc( "seed_dy_proc_$(nloop)Loop.yaml" )
 
   generate_amp( "dbar_u_TO_Wplus_$(nloop)Loop/dbar_u_TO_Wplus.yaml" )
 

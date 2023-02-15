@@ -32,18 +32,18 @@ Kinematics Relations:
   Den(-k1 - k2, 0, 0) => ver5
 Color Factors: 
   amp_color #1: 
-    (1/2)*ca*SUNT(clb1, clb2, cla3, cla4) + (-1/2)*ca*SUNT(clb2, clb1, cla3, cla4); 
+    (3/2)*SUNT(clb1, clb2, cla3, cla4) + (-3/2)*SUNT(clb2, clb1, cla3, cla4); 
   amp_color #2: 
-    (1/2)*ca*SUNT(clb1, clb2, cla3, cla4) + (1/4)*DeltaAdj(clb1, clb2)*DeltaFun(cla3, cla4); 
+    (1/4)*DeltaAdj(clb1, clb2)*DeltaFun(cla3, cla4) + (3/2)*SUNT(clb1, clb2, cla3, cla4); 
   amp_color #3: 
-    (1/2)*ca*SUNT(clb2, clb1, cla3, cla4) + (1/4)*DeltaAdj(clb1, clb2)*DeltaFun(cla3, cla4); 
+    (1/4)*DeltaAdj(clb1, clb2)*DeltaFun(cla3, cla4) + (3/2)*SUNT(clb2, clb1, cla3, cla4); 
 Lorentz Factors: 
   amp_lorentz #1: 
-    im*FV(q1,dum1)*(-1)*gcsub12*gcsub11^2*FermionChain(UB(3,K3,r3,mt),GA(epMU1),GA(dum1),GA(epMU2),V(4,K4,r4,mt))*VecEp(2,epMU2,k2,r2,0)*VecEp(1,epMU1,k1,r1,0)+im*FV(q1,dum1)*(1)*FermionChain(UB(3,K3,r3,mt),GA(epMU2),GA(dum1),GA(epMU1),V(4,K4,r4,mt))*gcsub12*gcsub11^2*VecEp(2,epMU2,k2,r2,0)*VecEp(1,epMU1,k1,r1,0)+mt*im*(-1)*gcsub12*gcsub11^2*FermionChain(UB(3,K3,r3,mt),GA(epMU2),GA(epMU1),V(4,K4,r4,mt))*VecEp(2,epMU2,k2,r2,0)*VecEp(1,epMU1,k1,r1,0)+mt*im*(1)*FermionChain(UB(3,K3,r3,mt),GA(epMU1),GA(epMU2),V(4,K4,r4,mt))*gcsub12*gcsub11^2*VecEp(2,epMU2,k2,r2,0)*VecEp(1,epMU1,k1,r1,0); 
+    im*gcsub12*gcsub11^2*FermionChain(UB(3,K3,mt),GA(epMU1),GA(-q1+mt*unity),GA(epMU2),V(4,K4,mt))*VecEp(2,epMU2,k2,0)*VecEp(1,epMU1,k1,0)-im*gcsub12*gcsub11^2*FermionChain(UB(3,K3,mt),GA(epMU2),GA(-q1+mt*unity),GA(epMU1),V(4,K4,mt))*VecEp(2,epMU2,k2,0)*VecEp(1,epMU1,k1,0); 
   amp_lorentz #2: 
-    im*SP(VecEp(1,0,k1,r1,0),VecEp(2,0,k2,r2,0))*FermionChain(UB(3,K3,r3,mt),GA(dum2),GA(dum1),GA(dum2),V(4,K4,r4,mt))*FV(q1,dum1)*(-1)*gcsub12*gcsub11^2+mt*im*(diim)*SP(VecEp(1,0,k1,r1,0),VecEp(2,0,k2,r2,0))*gcsub12*gcsub11^2*FermionChain(UB(3,K3,r3,mt),V(4,K4,r4,mt))+im*FV(q1,dum1)*(1)*FermionChain(UB(3,K3,r3,mt),GA(epMU2),GA(dum1),GA(epMU1),V(4,K4,r4,mt))*gcsub12*gcsub11^2*VecEp(2,epMU2,k2,r2,0)*VecEp(1,epMU1,k1,r1,0)+mt*im*(-1)*gcsub12*gcsub11^2*FermionChain(UB(3,K3,r3,mt),GA(epMU2),GA(epMU1),V(4,K4,r4,mt))*VecEp(2,epMU2,k2,r2,0)*VecEp(1,epMU1,k1,r1,0); 
+    im*SP(VecEp(1,0,k1,0),VecEp(2,0,k2,0))*gcsub12*gcsub11^2*FermionChain(UB(3,K3,mt),GA(dum1),GA(-q1+mt*unity),GA(dum1),V(4,K4,mt))-im*gcsub12*gcsub11^2*FermionChain(UB(3,K3,mt),GA(epMU2),GA(-q1+mt*unity),GA(epMU1),V(4,K4,mt))*VecEp(2,epMU2,k2,0)*VecEp(1,epMU1,k1,0); 
   amp_lorentz #3: 
-    im*SP(VecEp(1,0,k1,r1,0),VecEp(2,0,k2,r2,0))*FermionChain(UB(3,K3,r3,mt),GA(dum2),GA(dum1),GA(dum2),V(4,K4,r4,mt))*FV(q1,dum1)*(-1)*gcsub12*gcsub11^2+mt*im*(diim)*SP(VecEp(1,0,k1,r1,0),VecEp(2,0,k2,r2,0))*gcsub12*gcsub11^2*FermionChain(UB(3,K3,r3,mt),V(4,K4,r4,mt))+im*FV(q1,dum1)*(1)*gcsub12*gcsub11^2*FermionChain(UB(3,K3,r3,mt),GA(epMU1),GA(dum1),GA(epMU2),V(4,K4,r4,mt))*VecEp(2,epMU2,k2,r2,0)*VecEp(1,epMU1,k1,r1,0)+mt*im*(-1)*FermionChain(UB(3,K3,r3,mt),GA(epMU1),GA(epMU2),V(4,K4,r4,mt))*gcsub12*gcsub11^2*VecEp(2,epMU2,k2,r2,0)*VecEp(1,epMU1,k1,r1,0); 
+    im*SP(VecEp(1,0,k1,0),VecEp(2,0,k2,0))*gcsub12*gcsub11^2*FermionChain(UB(3,K3,mt),GA(dum1),GA(-q1+mt*unity),GA(dum1),V(4,K4,mt))-im*gcsub12*gcsub11^2*FermionChain(UB(3,K3,mt),GA(epMU1),GA(-q1+mt*unity),GA(epMU2),V(4,K4,mt))*VecEp(2,epMU2,k2,0)*VecEp(1,epMU1,k1,0); 
 Model Parameters: 
   as => 0.118
   aws => 0.808

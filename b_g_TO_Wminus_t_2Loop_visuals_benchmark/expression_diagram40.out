@@ -4,9 +4,9 @@ Loop Denominator Exponents: [1, 1, 1, 1, 1, 1]
 
 (* coupling factor: *) 
 1
-(* color factor \#1: *)
-(1/4)*SUNT(clb2, cla4, clb1)/ca^2 + (1/4)*SUNT(clb2, cla4, clb1)
+(* color factor #1: *)
+(-5/18)*SUNT(clb2, cla4, clb1)
 
-(* color factor coefficient \#1: *)
+(* color factor coefficient #1: *)
 
--im*ver2*VecEpC(3, epMU3, K3, r3, mw)*gcsub49*gcsub11^5*FermionChain(UB(4, K4, r4, mt), GA(dum1), GA(K4 + q2 + mt*unity), GA(dum2), GA(k2 - q1 + mt*unity), GA(epMU2), GA(-q1 + mt*unity), GA(dum1), GA(-q1 - q2 + mt*unity), GA(dum2), GA(-K3 + k1 + mt*unity), GA(epMU3), PL, U(1, k1, r1, 0))*VecEp(2, epMU2, k2, r2, 0)
+im*ver2*gcsub49*gcsub11^5*FermionChain(UB(4, K4, mt), GA(dum1), GA(K4 + q2 + mt*unity), GA(dum2), GA(k2 - q1 + mt*unity), GA(epMU2), GA(-q1 + mt*unity), GA(dum1), GA(-q1 - q2 + mt*unity), GA(dum2), GA(-K3 + k1 + mt*unity), GA(epMU3), PL, U(1, k1, 0))*VecEp(2, epMU2, k2, 0)*VecEpC(3, epMU3, K3, mw)

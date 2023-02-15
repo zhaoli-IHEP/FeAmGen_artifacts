@@ -59,11 +59,12 @@ check_consistency: true
 
 for nloop in [0,1]
 
-  open( "ggttbar_seed_proc_$(nloop)Loop.yaml", "w" ) do infile
+  open( "seed_ggttbar_proc_$(nloop)Loop.yaml", "w" ) do infile
     write( infile, generic_ggttbar_seed_proc_yaml_str(nloop=nloop) )
   end # close
 
-  digest_seed_proc( "ggttbar_seed_proc_$(nloop)Loop.yaml" )
+  digest_seed_proc( "seed_ggttbar_proc_$(nloop)Loop.yaml" )
+  rm( "seed_ggttbar_proc_$(nloop)Loop.yaml" )
 
   generate_amp( "g_g_TO_t_tbar_$(nloop)Loop/g_g_TO_t_tbar.yaml" )
 

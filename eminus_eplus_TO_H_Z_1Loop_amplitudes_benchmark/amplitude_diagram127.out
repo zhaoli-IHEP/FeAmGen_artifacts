@@ -34,10 +34,10 @@ Kinematics Relations:
   Den(k1 + k2, 0, 0) => ver6
 Color Factors: 
   amp_color #1: 
-    1; 
+    -1; 
 Lorentz Factors: 
   amp_lorentz #1: 
-    (-ver3)*FV(K3,dum2)*FV(q1,dum1)*VecEpC(4,epMU4,K4,r4,mz)*gcsub53*gcsub40^2*gcsub81*FermionChain(VB(2,k2,r2,0),PR,GA(epMU4),GA(dum1),GA(dum2),U(1,k1,r1,0))+(-ver3)*FV(K4,dum2)*FV(q1,dum1)*VecEpC(4,epMU4,K4,r4,mz)*gcsub53*gcsub40^2*gcsub81*FermionChain(VB(2,k2,r2,0),PR,GA(epMU4),GA(dum1),GA(dum2),U(1,k1,r1,0))+(-ver3)*FV(q1,dum1)*FV(k2,dum2)*VecEpC(4,epMU4,K4,r4,mz)*gcsub53*gcsub40^2*gcsub81*FermionChain(VB(2,k2,r2,0),PR,GA(epMU4),GA(dum1),GA(dum2),U(1,k1,r1,0))+(-ver3)*FV(q1,dum1)*VecEpC(4,epMU4,K4,r4,mz)*FV(k1,epMU4)*gcsub53*gcsub40^2*gcsub81*FermionChain(VB(2,k2,r2,0),PR,GA(dum2),GA(dum1),GA(dum2),U(1,k1,r1,0))+(2*ver3)*FV(q1,dum1)*VecEpC(4,epMU4,K4,r4,mz)*FV(q1,epMU4)*gcsub53*gcsub40^2*gcsub81*FermionChain(VB(2,k2,r2,0),PR,GA(dum2),GA(dum1),GA(dum2),U(1,k1,r1,0))+FV(K3,dum2)*FV(q1,dum1)*VecEpC(4,epMU4,K4,r4,mz)*FermionChain(VB(2,k2,r2,0),PR,GA(dum2),GA(dum1),GA(epMU4),U(1,k1,r1,0))*(ver3)*gcsub53*gcsub40^2*gcsub81+FV(K4,dum2)*FV(q1,dum1)*VecEpC(4,epMU4,K4,r4,mz)*FermionChain(VB(2,k2,r2,0),PR,GA(dum2),GA(dum1),GA(epMU4),U(1,k1,r1,0))*(ver3)*gcsub53*gcsub40^2*gcsub81+FV(q1,dum1)*FV(k1,dum2)*VecEpC(4,epMU4,K4,r4,mz)*FermionChain(VB(2,k2,r2,0),PR,GA(dum2),GA(dum1),GA(epMU4),U(1,k1,r1,0))*(ver3)*gcsub53*gcsub40^2*gcsub81+FV(q1,dum1)*VecEpC(4,epMU4,K4,r4,mz)*(ver3)*FV(k2,epMU4)*gcsub53*gcsub40^2*gcsub81*FermionChain(VB(2,k2,r2,0),PR,GA(dum2),GA(dum1),GA(dum2),U(1,k1,r1,0))+(-2*ver3)*FV(q1,dum1)*FV(q1,dum2)*LMT(dum1,dum2)*VecEpC(4,epMU4,K4,r4,mz)*FermionChain(VB(2,k2,r2,0),PR,GA(epMU4),U(1,k1,r1,0))*gcsub53*gcsub40^2*gcsub81; 
+    ver3*FermionChain(VB(2,k2,0),GA(epMU4),PL,GA(q1),GA(K3+K4+k2+q1),PL,U(1,k1,0))*gcsub53*gcsub40^2*gcsub81*VecEpC(4,epMU4,K4,mz)+ver3*FermionChain(VB(2,k2,0),GA(-K3-K4-k1+q1),PL,GA(q1),GA(epMU4),PL,U(1,k1,0))*gcsub53*gcsub40^2*gcsub81*VecEpC(4,epMU4,K4,mz)+ver3*gcsub53*gcsub40^2*gcsub81*FV(k1-k2-2*q1,epMU4)*FermionChain(VB(2,k2,0),GA(dum1),PL,GA(q1),GA(dum1),PL,U(1,k1,0))*VecEpC(4,epMU4,K4,mz); 
 Model Parameters: 
   as => 0.118
   aws => 0.808

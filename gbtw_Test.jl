@@ -49,8 +49,8 @@ Amp_Min_Ep_Xpt: $(-2*nloop)
 Amp_Max_Ep_Xpt: 0
 
 # incoming and outgoing information
-incoming: [ "g", "b" ]          # incoming particles
-outgoing: [ "t", "Wminus" ]               # outgoing particles 
+incoming: [ "b", "g" ]          # incoming particles
+outgoing: [ "Wminus", "t" ]               # outgoing particles 
 
 # whether to check the consistency between two versions of amplitudes
 check_consistency: true
@@ -59,13 +59,13 @@ check_consistency: true
 
 for nloop in [0,1,2]
 
-  open( "gbtw_seed_proc_$(nloop)Loop.yaml", "w" ) do infile
+  open( "seed_gbtw_proc_$(nloop)Loop.yaml", "w" ) do infile
     write( infile, generic_gbtw_seed_proc_yaml_str(nloop=nloop) )
   end 
 
-  digest_seed_proc( "gbtw_seed_proc_$(nloop)Loop.yaml" )
+  digest_seed_proc( "seed_gbtw_proc_$(nloop)Loop.yaml" )
 
-  generate_amp( "g_b_TO_t_Wminus_$(nloop)Loop/b_g_TO_Wminus_t.yaml" )
+  generate_amp( "b_g_TO_Wminus_t_$(nloop)Loop/b_g_TO_Wminus_t.yaml" )
 
 end # for nloop
 

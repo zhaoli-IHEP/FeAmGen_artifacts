@@ -1,6 +1,0 @@
-Loop Denominators: Basic[Den(-k1 + q2, 0, 0), Den(K3 - k2 + q1 - q2, 0, 0), Den(K3 + q1, 0, 0), Den(K4 - q1, 0, 0), Den(q2, 0, 0), Den(-K3 - q1 + q2, 0, 0), Den(q1, mt, 0)]
-
-Loop Denominator Exponents: [1, 1, 1, 1, 1, 1, 1] 
-
-(* coupling factor: *) 
-1

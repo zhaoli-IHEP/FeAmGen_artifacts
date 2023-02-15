@@ -49,7 +49,7 @@ Amp_Min_Ep_Xpt: $(-2*nloop)
 Amp_Max_Ep_Xpt: 0
 
 # incoming and outgoing information
-incoming: [ "eplus", "eminus" ]          # incoming particles
+incoming: [ "eminus", "eplus" ]          # incoming particles
 outgoing: [ "H", "Z" ]               # outgoing particles 
 
 # whether to check the consistency between two versions of amplitudes
@@ -59,11 +59,11 @@ check_consistency: false
 
 for nloop in [0,1]
 
-  open( "eeHZ_seed_proc_$(nloop)Loop.yaml", "w" ) do infile
+  open( "seed_eeHZ_proc_$(nloop)Loop.yaml", "w" ) do infile
     write( infile, generic_eeHZ_seed_proc_yaml_str(nloop=nloop) )
   end # close
 
-  digest_seed_proc( "eeHZ_seed_proc_$(nloop)Loop.yaml" )
+  digest_seed_proc( "seed_eeHZ_proc_$(nloop)Loop.yaml" )
 
   generate_amp( "eplus_eminus_TO_H_Z_$(nloop)Loop/eminus_eplus_TO_H_Z.yaml" )
 

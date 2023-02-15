@@ -24,7 +24,7 @@ Color Factors:
     SUNT(clb2, cla4, clb1); 
 Lorentz Factors: 
   amp_lorentz #1: 
-    im*(-ver2)*FV(K3,dum1)*VecEpC(3,epMU3,K3,r3,mw)*gcsub49*gcsub11*FermionChain(UB(4,K4,r4,mt),PR,GA(epMU2),GA(dum1),GA(epMU3),U(1,k1,r1,0))*VecEp(2,epMU2,k2,r2,0)+im*FV(k1,dum1)*VecEpC(3,epMU3,K3,r3,mw)*(ver2)*gcsub49*gcsub11*FermionChain(UB(4,K4,r4,mt),PR,GA(epMU2),GA(dum1),GA(epMU3),U(1,k1,r1,0))*VecEp(2,epMU2,k2,r2,0)+mt*im*VecEpC(3,epMU3,K3,r3,mw)*(ver2)*gcsub49*gcsub11*FermionChain(UB(4,K4,r4,mt),PL,GA(epMU2),GA(epMU3),U(1,k1,r1,0))*VecEp(2,epMU2,k2,r2,0); 
+    im*ver2*gcsub49*gcsub11*FermionChain(UB(4,K4,mt),GA(epMU2),GA(-K3+k1+mt*unity),GA(epMU3),PL,U(1,k1,0))*VecEp(2,epMU2,k2,0)*VecEpC(3,epMU3,K3,mw); 
 Model Parameters: 
   as => 0.118
   aws => 0.808

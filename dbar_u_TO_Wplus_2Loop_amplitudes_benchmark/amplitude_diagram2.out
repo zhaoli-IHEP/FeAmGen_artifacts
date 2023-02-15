@@ -19,10 +19,10 @@ Kinematics Relations:
   SP(k1, k1) => 0
 Color Factors: 
   amp_color #1: 
-    (1/4)*DeltaFun(clb1, clb2)/ca^2 + (1/4)*ca^2*DeltaFun(clb1, clb2) + (-1/2)*DeltaFun(clb1, clb2); 
+    (-16/9)*DeltaFun(clb1, clb2); 
 Lorentz Factors: 
   amp_lorentz #1: 
-    FV(K3,dum4)*FV(q2,dum1)*FV(k2,dum3)*FV(k1,dum2)*(1)*VecEpC(3,epMU3,K3,r3,mw)*gcsub11^4*gcsub100*FermionChain(VB(1,k1,r1,0),PR,GA(dum5),GA(dum2),GA(dum6),GA(dum1),GA(epMU3),GA(dum4),GA(dum6),GA(dum3),GA(dum5),U(2,k2,r2,0))+FV(K3,dum4)*FV(q2,dum2)*FV(q1,dum1)*FV(k1,dum3)*(1)*VecEpC(3,epMU3,K3,r3,mw)*gcsub11^4*FermionChain(VB(1,k1,r1,0),PR,GA(dum5),GA(dum3),GA(dum6),GA(dum2),GA(epMU3),GA(dum4),GA(dum6),GA(dum1),GA(dum5),U(2,k2,r2,0))*gcsub100+FV(K3,dum4)*FV(q2,dum2)*FV(q1,dum1)*FV(k2,dum3)*(-1)*VecEpC(3,epMU3,K3,r3,mw)*FermionChain(VB(1,k1,r1,0),PR,GA(dum5),GA(dum1),GA(dum6),GA(dum2),GA(epMU3),GA(dum4),GA(dum6),GA(dum3),GA(dum5),U(2,k2,r2,0))*gcsub11^4*gcsub100+FV(q2,dum3)*FV(q2,dum2)*FV(q1,dum1)*FV(k1,dum4)*(1)*VecEpC(3,epMU3,K3,r3,mw)*FermionChain(VB(1,k1,r1,0),PR,GA(dum5),GA(dum4),GA(dum6),GA(dum2),GA(epMU3),GA(dum3),GA(dum6),GA(dum1),GA(dum5),U(2,k2,r2,0))*gcsub11^4*gcsub100+FermionChain(VB(1,k1,r1,0),PR,GA(dum5),GA(dum1),GA(dum6),GA(dum2),GA(epMU3),GA(dum3),GA(dum6),GA(dum4),GA(dum5),U(2,k2,r2,0))*FV(q2,dum3)*FV(q2,dum2)*FV(q1,dum1)*FV(k2,dum4)*(-1)*VecEpC(3,epMU3,K3,r3,mw)*gcsub11^4*gcsub100+FermionChain(VB(1,k1,r1,0),PR,GA(dum5),GA(dum1),GA(dum6),GA(dum3),GA(epMU3),GA(dum4),GA(dum6),GA(dum2),GA(dum5),U(2,k2,r2,0))*FV(K3,dum4)*FV(q2,dum3)*FV(q1,dum1)*FV(q1,dum2)*(-1)*VecEpC(3,epMU3,K3,r3,mw)*gcsub11^4*gcsub100+FermionChain(VB(1,k1,r1,0),PR,GA(dum5),GA(dum1),GA(dum6),GA(dum3),GA(epMU3),GA(dum4),GA(dum6),GA(dum2),GA(dum5),U(2,k2,r2,0))*FV(q2,dum4)*FV(q2,dum3)*FV(q1,dum1)*FV(q1,dum2)*(-1)*VecEpC(3,epMU3,K3,r3,mw)*gcsub11^4*gcsub100+FermionChain(VB(1,k1,r1,0),PR,GA(dum5),GA(dum3),GA(dum6),GA(dum1),GA(epMU3),GA(dum2),GA(dum6),GA(dum4),GA(dum5),U(2,k2,r2,0))*FV(q2,dum2)*FV(q2,dum1)*FV(k2,dum4)*FV(k1,dum3)*(1)*VecEpC(3,epMU3,K3,r3,mw)*gcsub11^4*gcsub100; 
+    FermionChain(VB(1,k1,0),GA(dum1),GA(-k1+q1),GA(dum2),GA(q2),GA(epMU3),PL,GA(K3+q2),GA(dum2),GA(k2+q1),GA(dum1),U(2,k2,0))*gcsub11^4*VecEpC(3,epMU3,K3,mw)*gcsub100; 
 Model Parameters: 
   as => 0.118
   aws => 0.808

@@ -4,9 +4,9 @@ Loop Denominator Exponents: [1, 1, 1]
 
 (* coupling factor: *) 
 1
-(* color factor \#1: *)
+(* color factor #1: *)
 1
 
-(* color factor coefficient \#1: *)
+(* color factor coefficient #1: *)
 
-ver5*FermionChain(VB(2, k2, r2, 0), GA(epMU4), PL, GA(K4 - k2), GA(dum1), PL, GA(k1 - q1), GA(dum1), PL, U(1, k1, r1, 0))*VecEpC(4, epMU4, K4, r4, mz)*gcsub50*gcsub40^2*gcsub72 + ver5*FermionChain(VB(2, k2, r2, 0), GA(epMU4), PL, GA(K4 - k2), GA(dum1), PL, GA(k1 - q1), GA(dum1), PL, U(1, k1, r1, 0))*VecEpC(4, epMU4, K4, r4, mz)*gcsub59*gcsub40^2*gcsub72 + 2*ver5*VecEpC(4, epMU4, K4, r4, mz)*gcsub59*gcsub40^2*gcsub72*FermionChain(VB(2, k2, r2, 0), GA(epMU4), PR, GA(K4 - k2), GA(dum1), PL, GA(k1 - q1), GA(dum1), PL, U(1, k1, r1, 0))
+2*ver5*gcsub59*gcsub40^2*gcsub72*FermionChain(VB(2, k2, 0), GA(epMU4), PR, GA(K4 - k2), GA(dum1), PL, GA(k1 - q1), GA(dum1), PL, U(1, k1, 0))*VecEpC(4, epMU4, K4, mz) + ver5*FermionChain(VB(2, k2, 0), GA(epMU4), PL, GA(K4 - k2), GA(dum1), PL, GA(k1 - q1), GA(dum1), PL, U(1, k1, 0))*gcsub50*gcsub40^2*gcsub72*VecEpC(4, epMU4, K4, mz) + ver5*FermionChain(VB(2, k2, 0), GA(epMU4), PL, GA(K4 - k2), GA(dum1), PL, GA(k1 - q1), GA(dum1), PL, U(1, k1, 0))*gcsub59*gcsub40^2*gcsub72*VecEpC(4, epMU4, K4, mz)

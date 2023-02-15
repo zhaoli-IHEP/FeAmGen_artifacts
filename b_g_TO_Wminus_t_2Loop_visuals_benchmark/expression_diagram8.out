@@ -4,21 +4,15 @@ Loop Denominator Exponents: [1, 1, 1, 1, 1, 1]
 
 (* coupling factor: *) 
 1
-(* color factor \#1: *)
-(-1/4)*SUNT(clb2, cla4, clb1)/ca^2 + (-1/2)*cf*SUNT(clb2, cla4, clb1)/ca + (1/4)*SUNT(clb2, cla4, clb1)
+(* color factor #1: *)
+(-9/4)*SUNT(clb2, cla4, clb1)
 
-(* color factor coefficient \#1: *)
+(* color factor coefficient #1: *)
 
--VecEpC(3, epMU3, K3, r3, mw)*gcsub49*gcsub12*gcsub11^3*FermionChain(UB(4, K4, r4, mt), GA(epMU2), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(dum1), GA(q2), GA(dum1), U(1, k1, r1, 0))*VecEp(2, epMU2, k2, r2, 0) + VecEpC(3, epMU3, K3, r3, mw)*FermionChain(UB(4, K4, r4, mt), GA(dum1), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(dum1), GA(q2), GA(epMU2), U(1, k1, r1, 0))*gcsub49*gcsub12*gcsub11^3*VecEp(2, epMU2, k2, r2, 0)
-(* color factor \#2: *)
-(1/2)*cf*ca*SUNT(clb2, cla4, clb1) + (1/4)*SUNT(clb2, cla4, clb1)
+gcsub49*gcsub12*gcsub11^3*FermionChain(UB(4, K4, mt), GA(dum1), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(dum1), GA(q2), GA(epMU2), U(1, k1, 0))*VecEp(2, epMU2, k2, 0)*VecEpC(3, epMU3, K3, mw) - FermionChain(UB(4, K4, mt), GA(dum1), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(epMU2), GA(q2), GA(dum1), U(1, k1, 0))*gcsub49*gcsub12*gcsub11^3*VecEp(2, epMU2, k2, 0)*VecEpC(3, epMU3, K3, mw)
+(* color factor #2: *)
+(9/4)*SUNT(clb2, cla4, clb1)
 
-(* color factor coefficient \#2: *)
+(* color factor coefficient #2: *)
 
-VecEpC(3, epMU3, K3, r3, mw)*gcsub49*gcsub12*gcsub11^3*FermionChain(UB(4, K4, r4, mt), GA(dum1), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(epMU2), GA(q2), GA(dum1), U(1, k1, r1, 0))*VecEp(2, epMU2, k2, r2, 0) - VecEpC(3, epMU3, K3, r3, mw)*FermionChain(UB(4, K4, r4, mt), GA(dum1), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(dum1), GA(q2), GA(epMU2), U(1, k1, r1, 0))*gcsub49*gcsub12*gcsub11^3*VecEp(2, epMU2, k2, r2, 0)
-(* color factor \#3: *)
-(1/2)*cf*ca*SUNT(clb2, cla4, clb1) + (1/4)*SUNT(clb2, cla4, clb1)
-
-(* color factor coefficient \#3: *)
-
-VecEpC(3, epMU3, K3, r3, mw)*gcsub49*gcsub12*gcsub11^3*FermionChain(UB(4, K4, r4, mt), GA(dum1), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(epMU2), GA(q2), GA(dum1), U(1, k1, r1, 0))*VecEp(2, epMU2, k2, r2, 0) - VecEpC(3, epMU3, K3, r3, mw)*gcsub49*gcsub12*gcsub11^3*FermionChain(UB(4, K4, r4, mt), GA(epMU2), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(dum1), GA(q2), GA(dum1), U(1, k1, r1, 0))*VecEp(2, epMU2, k2, r2, 0)
+-gcsub49*gcsub12*gcsub11^3*FermionChain(UB(4, K4, mt), GA(epMU2), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(dum1), GA(q2), GA(dum1), U(1, k1, 0))*VecEp(2, epMU2, k2, 0)*VecEpC(3, epMU3, K3, mw) + FermionChain(UB(4, K4, mt), GA(dum1), GA(q1 + mt*unity), GA(epMU3), PL, GA(K3 + q1), GA(epMU2), GA(q2), GA(dum1), U(1, k1, 0))*gcsub49*gcsub12*gcsub11^3*VecEp(2, epMU2, k2, 0)*VecEpC(3, epMU3, K3, mw)

@@ -33,10 +33,10 @@ Kinematics Relations:
   Den(k1 + k2, 0, 0) => ver6
 Color Factors: 
   amp_color #1: 
-    ca; 
+    -3; 
 Lorentz Factors: 
   amp_lorentz #1: 
-    0; 
+    -ver3*ver6*gcsub2*gcsub3*FermionChain(VB(2,k2,0),GA(dum1),U(1,k1,0))*Trace(GA(q1+mt*unity),GA(dum1),GA(-k1-k2+q1+mt*unity),PL)*FV(K3,epMU4)*gcsub95*gcsub60*VecEpC(4,epMU4,K4,mz)+ver3*ver6*gcsub2*gcsub3*FermionChain(VB(2,k2,0),GA(dum1),U(1,k1,0))*Trace(GA(q1+mt*unity),GA(dum1),GA(-k1-k2+q1+mt*unity),PL)*FV(-K3-K4,epMU4)*gcsub95*gcsub60*VecEpC(4,epMU4,K4,mz)+ver3*ver6*gcsub2*gcsub3*FermionChain(VB(2,k2,0),GA(dum1),U(1,k1,0))*Trace(GA(q1+mt*unity),GA(dum1),GA(-k1-k2+q1+mt*unity),PR)*FV(K3,epMU4)*gcsub95*gcsub60*VecEpC(4,epMU4,K4,mz)-ver3*ver6*gcsub2*gcsub3*FermionChain(VB(2,k2,0),GA(dum1),U(1,k1,0))*Trace(GA(q1+mt*unity),GA(dum1),GA(-k1-k2+q1+mt*unity),PR)*FV(-K3-K4,epMU4)*gcsub95*gcsub60*VecEpC(4,epMU4,K4,mz); 
 Model Parameters: 
   as => 0.118
   aws => 0.808
