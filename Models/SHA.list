@@ -1,0 +1,20 @@
+julia> using SHA
+
+julia> (bytes2hex∘sha256)("sm_CKMdiag_Haa")
+"42890871318263aabd93bba66cfe8aa6013587e5ee6f8af607fa03f62652ee2e"
+
+julia> (bytes2hex∘sha256)("sm_CKMdiag_Haa.tar.bz2")
+"926b05268a906a803cdb738349fd5b78351c8619996f1a16564f29a169543be9"
+
+julia> (bytes2hex∘sha256)("sm")
+"5af308bec132bd499660594a6c127c57f910a25c18968eb4f9b976f48df8cb49"
+
+julia> (bytes2hex∘sha256)("sm.tar.bz2")
+"4ee796b534e9fd595ac4e12c52ae7847bc938f2c91d3a7daa4ff4c27de3d1204"
+
+julia> (bytes2hex∘sha256)("sm_tbW")
+"fb20f86211878fa31a41cb0f18e9aa02db76cef6b61c27ebc8896ad40b943020"
+
+julia> (bytes2hex∘sha256)("sm_tbW.tar.bz2")
+"fe06b669291b1a9f7255e576bea1705ec24a6d238430c0d73a46b5909bab41d2"
+
