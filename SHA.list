@@ -1,0 +1,8 @@
+julia> using SymEngineExt
+
+julia> calc_sha256("color.frm")
+"89b59de36758eb45e4dc08a3534aef4b42afff1491b9c46b4f999b74194f44be"
+
+julia> calc_sha256("contractor.frm")
+"6df89e013cbd3047139e66aa016161b6249a3309425938856f1961cce037462a"
+
