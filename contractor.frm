@@ -103,8 +103,8 @@ repeat;
   id ONEij(spa?,spa?) = 4;
   id ONEij(spa1?,spa2?)*ONEij(spa2?,spa3?) = ONEij(spa1,spa3);
 
-  id GAij(spa1?,spa2?,rho?ALLLOR) * GAij(spa2?,spa3?,rho?ALLLOR) = diim*ONEij(spa1,spa3);
-  id GAij(spa1?,spa2?,mom?ALLMOM) * GAij(spa2?,spa3?,mom?ALLMOM) = SP(mom,mom)*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,rho?LOR) * GAij(spa2?,spa3?,rho?LOR) = diim*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,mom?MOM) * GAij(spa2?,spa3?,mom?MOM) = SP(mom,mom)*ONEij(spa1,spa3);
   id GAij(spa1?,spa2?,rho?)*ONEij(spa3?,spa2?) = GAij(spa1,spa3,rho);
   id GAij(spa2?,spa1?,rho?)*ONEij(spa3?,spa2?) = GAij(spa3,spa1,rho);
 
@@ -168,7 +168,7 @@ id Levi(rho1?,rho2?,rho3?,rho4?) = Levi(rho1,rho2,rho3,rho4);
 *
 * vanishing momentum scalar product also vanishes
 *
-id SP(mom?NULL,mom?NULL) = 0;
+id SP(mom?kn,mom?kn) = 0;
 
 *
 * Explain FermionLoopPow and GhostLoopPow
@@ -177,7 +177,7 @@ id FermionLoopPow(-1,int?) = (-1)^int;
 id GhostLoopPow(-1,int?) = (-1)^int;
 .sort
 
-id FermionChain( ?vars1, GA(rho?ALLLOR), GA(rho?ALLLOR), ?vars2 ) = diim*FermionChain(?vars1,?vars2);
+id FermionChain( ?vars1, GA(rho?LOR), GA(rho?LOR), ?vars2 ) = diim*FermionChain(?vars1,?vars2);
 .sort
 
 
@@ -215,8 +215,8 @@ repeat;
   id ONEij(spa?,spa?) = 4;
   id ONEij(spa1?,spa2?)*ONEij(spa2?,spa3?) = ONEij(spa1,spa3);
 
-  id GAij(spa1?,spa2?,rho?ALLLOR) * GAij(spa2?,spa3?,rho?ALLLOR) = diim*ONEij(spa1,spa3);
-  id GAij(spa1?,spa2?,mom?ALLMOM) * GAij(spa2?,spa3?,mom?ALLMOM) = SP(mom,mom)*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,rho?LOR) * GAij(spa2?,spa3?,rho?LOR) = diim*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,mom?MOM) * GAij(spa2?,spa3?,mom?MOM) = SP(mom,mom)*ONEij(spa1,spa3);
   id GAij(spa1?,spa2?,rho?)*ONEij(spa3?,spa2?) = GAij(spa1,spa3,rho);
   id GAij(spa2?,spa1?,rho?)*ONEij(spa3?,spa2?) = GAij(spa3,spa1,rho);
 
@@ -280,7 +280,7 @@ id VecEpsilon1?{VecEp,VecEpC}(int1?, rho?, ?vars1) * VecEpsilon2?{VecEp,VecEpC}(
 *
 * vanishing momentum scalar product also vanishes
 *
-id SP(mom?NULL,mom?NULL) = 0;
+id SP(mom?kn,mom?kn) = 0;
 
 *
 * Explain FermionLoopPow and GhostLoopPow
@@ -328,8 +328,8 @@ repeat;
   id Trace(?vars1,PL,PR,?vars2) = 0;
   id Trace(?vars1,PR,PL,?vars2) = 0;
 
-  id Trace(?vars1,GA(rho?ALLLOR),PL,?vars2) = Trace(?vars1,PR,GA(rho),?vars2);
-  id Trace(?vars1,GA(rho?ALLLOR),PR,?vars2) = Trace(?vars1,PL,GA(rho),?vars2);
+  id Trace(?vars1,GA(rho?LOR),PL,?vars2) = Trace(?vars1,PR,GA(rho),?vars2);
+  id Trace(?vars1,GA(rho?LOR),PR,?vars2) = Trace(?vars1,PL,GA(rho),?vars2);
 
   id Trace(?vars1,GA(mom?),PL,?vars2) = Trace(?vars1,PR,GA(mom),?vars2);
   id Trace(?vars1,GA(mom?),PR,?vars2) = Trace(?vars1,PL,GA(mom),?vars2);
@@ -338,20 +338,20 @@ endrepeat;
 
 
 repeat;
-  id FV(mom?,rho?ALLLOR)*Trace(?vars1,GA(rho?ALLLOR),?vars2) = Trace(?vars1,GA(mom),?vars2);
-  id LMT(rho1?ALLLOR,rho2?ALLLOR)*Trace(?vars1,GA(rho2?ALLLOR),?vars2) = Trace(?vars1,GA(rho1),?vars2);
+  id FV(mom?,rho?LOR)*Trace(?vars1,GA(rho?LOR),?vars2) = Trace(?vars1,GA(mom),?vars2);
+  id LMT(rho1?LOR,rho2?LOR)*Trace(?vars1,GA(rho2?LOR),?vars2) = Trace(?vars1,GA(rho1),?vars2);
 
-  id Trace(?vars1,GA(mom?ALLMOM),GA(mom?ALLMOM),?vars2) = SP(mom,mom)*Trace(?vars1,?vars2);
-  id SP(mom?NULL,mom?NULL) = 0;
+  id Trace(?vars1,GA(mom?MOM),GA(mom?MOM),?vars2) = SP(mom,mom)*Trace(?vars1,?vars2);
+  id SP(mom?kn,mom?kn) = 0;
 
-  id Trace(?vars1,GA(rho?ALLLOR),GA(rho?ALLLOR),?vars2) = Trace(?vars1,?vars2)*diim;
+  id Trace(?vars1,GA(rho?LOR),GA(rho?LOR),?vars2) = Trace(?vars1,?vars2)*diim;
 endrepeat;
 .sort
  
 id Trace(PL,?vars) = (1+sign_(nargs_(?vars)))/2*Trace(PL,?vars);
 id Trace(PR,?vars) = (1+sign_(nargs_(?vars)))/2*Trace(PR,?vars);
 id Trace(GA(mom?),?vars) = (1+sign_(1+nargs_(?vars)))/2*Trace(GA(mom),?vars);
-id Trace(GA(rho?ALLLOR),?vars) = (1+sign_(1+nargs_(?vars)))/2*Trace(GA(rho),?vars);
+id Trace(GA(rho?LOR),?vars) = (1+sign_(1+nargs_(?vars)))/2*Trace(GA(rho),?vars);
 .sort
 
 id Trace(PL,?vars) = 1/2*Trace(?vars)-1/2*Trace5(?vars);
@@ -387,14 +387,14 @@ contract;
 .sort
 
 id VecEpsilon?{VecEp,VecEpC}(int?,mom0?,mom?,mass?) = FV(mom0,EPMU[int])*VecEpsilon(int,EPMU[int],mom,mass);
-id mom?NULL.mom?NULL = 0;
+id mom?kn.mom?kn = 0;
 id mom1?.mom2? = SP(mom1,mom2);
-id mom?(rho?ALLLOR) = FV(mom,rho);
+id mom?(rho?LOR) = FV(mom,rho);
 id e_(rho1?,rho2?,rho3?,rho4?) = -im*Levi(rho1,rho2,rho3,rho4);
 .sort
 
 id d_(rho1?,rho2?) = LMT(rho1,rho2);
-repeat id LMT(rho1?ALLLOR,rho2?ALLLOR)*FermionChain(?vars1,GA(rho2?ALLLOR),?vars2) = FermionChain(?vars1,GA(rho1),?vars2);
+repeat id LMT(rho1?LOR,rho2?LOR)*FermionChain(?vars1,GA(rho2?LOR),?vars2) = FermionChain(?vars1,GA(rho1),?vars2);
 .sort
 
 id VecEpsilon?{VecEp,VecEpC}(int?,rho?NonEPMU,mom?,mass?)*FermionChain(?vars1,GA(rho?NonEPMU),?vars2) 
@@ -430,26 +430,26 @@ endrepeat;
 *
 repeat;
   id FermionChain( ?vars1, GA(mom?), GA(mom?), ?vars2 ) = FermionChain( ?vars1, ?vars2 )*SP(mom,mom);
-  id SP(mom?NULL,mom?NULL) = 0;
-  id FermionChain( ?vars1, GA(rho?ALLLOR), GA(rho?ALLLOR), ?vars2 ) = FermionChain(?vars1,?vars2)*diim;
+  id SP(mom?kn,mom?kn) = 0;
+  id FermionChain( ?vars1, GA(rho?LOR), GA(rho?LOR), ?vars2 ) = FermionChain(?vars1,?vars2)*diim;
 endrepeat;
 .sort
 
 ***pull momentum of right-side spinor to the relevant spinor
 repeat;
-  id FermionChain( ?vars1, GA(mom?), GA(rho?ALLLOR), ?vars2, Spinor?IRSPSET(int?,mom?,mass?) )
+  id FermionChain( ?vars1, GA(mom?), GA(rho?LOR), ?vars2, Spinor?IRSPSET(int?,mom?,mass?) )
     = FermionChain( ?vars1, ?vars2, Spinor(int,mom,mass) )*2*FV(mom,rho)
      -FermionChain( ?vars1, GA(rho), GA(mom), ?vars2, Spinor(int,mom,mass) );
 
-  id FV(mom?NULL,rho?)^2 = 0;
+  id FV(mom?kn,rho?)^2 = 0;
   id FV(mom1?,rho?)*FV(mom2?,rho?) = SP(mom1,mom2);
-  id FV(mom?,rho?ALLLOR)*FermionChain(?vars1,GA(rho?ALLLOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
+  id FV(mom?,rho?LOR)*FermionChain(?vars1,GA(rho?LOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
 
   repeat id FermionChain( ?vars1, GA(mom?), GA(mom?), ?vars2 ) = FermionChain( ?vars1, ?vars2 )*SP(mom,mom);
   id FV(mom1?,rho?)*FV(mom2?,rho?) = SP(mom1,mom2);
-  id SP(mom?NULL,mom?NULL) = 0;
+  id SP(mom?kn,mom?kn) = 0;
 
-  id FermionChain( ?vars1, GA(mom1?), GA(mom2?ALLMOM), ?vars2, Spinor?{U,V}(int?,mom1?,mass?) )
+  id FermionChain( ?vars1, GA(mom1?), GA(mom2?MOM), ?vars2, Spinor?{U,V}(int?,mom1?,mass?) )
     = FermionChain( ?vars1, ?vars2, Spinor(int,mom1,mass) )*2*SP(mom1,mom2)
      -FermionChain( ?vars1, GA(mom2), GA(mom1), ?vars2, Spinor(int,mom1,mass) );
 
@@ -460,13 +460,13 @@ endrepeat;
 
 ***pull momentum of left-side spinor to the relevant spinor
 repeat;
-  id FermionChain( Spinor?ILSPSET(int?,mom?,mass?), ?vars1, GA(rho?ALLLOR), GA(mom?), ?vars2 )
+  id FermionChain( Spinor?ILSPSET(int?,mom?,mass?), ?vars1, GA(rho?LOR), GA(mom?), ?vars2 )
     = FermionChain( Spinor(int,mom,mass), ?vars1, ?vars2 )*2*FV(mom,rho)
      -FermionChain( Spinor(int,mom,mass), ?vars1, GA(mom), GA(rho), ?vars2 );
 
-  id FV(mom?NULL,rho?)^2 = 0;
+  id FV(mom?kn,rho?)^2 = 0;
   id FV(mom1?,rho?)*FV(mom2?,rho?) = SP(mom1,mom2);
-  id FV(mom?,rho?ALLLOR)*FermionChain(?vars1,GA(rho?ALLLOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
+  id FV(mom?,rho?LOR)*FermionChain(?vars1,GA(rho?LOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
 
   id FermionChain( Spinor?ILSPSET(int?,mom?,mass?), ?vars1, PR, GA(mom?), ?vars2 )
     = FermionChain( Spinor(int,mom,mass), ?vars1, GA(mom), PL, ?vars2 );
@@ -476,9 +476,9 @@ repeat;
 
   repeat id FermionChain( ?vars1, GA(mom?), GA(mom?), ?vars2 ) = FermionChain( ?vars1, ?vars2 )*SP(mom,mom);
   id FV(mom1?,rho?)*FV(mom2?,rho?) = SP(mom1,mom2);
-  id SP(mom?NULL,mom?NULL) = 0;
+  id SP(mom?kn,mom?kn) = 0;
 
-  id FermionChain( Spinor?ILSPSET(int?,mom1?,mass?), ?vars1, GA(mom2?ALLMOM), GA(mom1?), ?vars2 )
+  id FermionChain( Spinor?ILSPSET(int?,mom1?,mass?), ?vars1, GA(mom2?MOM), GA(mom1?), ?vars2 )
     = FermionChain( Spinor(int,mom1,mass), ?vars1, ?vars2 )*2*SP(mom1,mom2)
      -FermionChain( Spinor(int,mom1,mass), ?vars1, GA(mom1), GA(mom2), ?vars2 );
 
@@ -492,15 +492,15 @@ endrepeat;
 
 ***move momentums to right-side of lorentz indices
 repeat;
-  id FermionChain( ?vars1, GA(mom?ALLMOM), GA(mom?ALLMOM), ?vars2 ) = FermionChain(?vars1,?vars2)*SP(mom,mom);
-  id SP(mom?NULL,mom?NULL) = 0;
+  id FermionChain( ?vars1, GA(mom?MOM), GA(mom?MOM), ?vars2 ) = FermionChain(?vars1,?vars2)*SP(mom,mom);
+  id SP(mom?kn,mom?kn) = 0;
 
-  id FermionChain( ?vars1, GA(rho?ALLLOR), GA(rho?ALLLOR), ?vars2 ) = FermionChain(?vars1,?vars2)*diim;
+  id FermionChain( ?vars1, GA(rho?LOR), GA(rho?LOR), ?vars2 ) = FermionChain(?vars1,?vars2)*diim;
 
-  id FermionChain( ?vars1, GA(mom?), GA(rho?ALLLOR), ?vars2 )
+  id FermionChain( ?vars1, GA(mom?), GA(rho?LOR), ?vars2 )
     = 2*FV(mom,rho)*FermionChain(?vars1,?vars2)
      - FermionChain( ?vars1, GA(rho), GA(mom), ?vars2 );
-  id FV(mom?,rho?ALLLOR)*FermionChain(?vars1,GA(rho?ALLLOR),?vars2) 
+  id FV(mom?,rho?LOR)*FermionChain(?vars1,GA(rho?LOR),?vars2) 
     = FermionChain(?vars1,GA(mom),?vars2);
 endrepeat;
 .sort
@@ -510,23 +510,23 @@ endrepeat;
 *** Contract dummy indices in single fermion chain.
 ***
 repeat;
-  id FermionChain( ?vars1, GA(rho?ALLLOR), GA(rho?ALLLOR), ?vars2 )
+  id FermionChain( ?vars1, GA(rho?LOR), GA(rho?LOR), ?vars2 )
     = diim*FermionChain(?vars1,?vars2);
 
-  id FermionChain( ?vars1, GA(rho2?ALLLOR), GA(rho1?), GA(rho2?ALLLOR), ?vars2 )
+  id FermionChain( ?vars1, GA(rho2?LOR), GA(rho1?), GA(rho2?LOR), ?vars2 )
     = (2-diim)*FermionChain( ?vars1, GA(rho1), ?vars2 );
 
-  id FermionChain( ?vars1, GA(rho?ALLLOR), GA(rho1?ALLLOR), GA(rho2?ALLLOR), GA(rho?ALLLOR), ?vars2 )
+  id FermionChain( ?vars1, GA(rho?LOR), GA(rho1?LOR), GA(rho2?LOR), GA(rho?LOR), ?vars2 )
     = 4*LMT(rho1,rho2)*FermionChain( ?vars1, ?vars2 )
      + (diim-4)*FermionChain( ?vars1, GA(rho1), GA(rho2), ?vars2 );
 
   id LMT(rho1?,rho2?)*FermionChain( ?vars1, GA(rho2?), ?vars2 ) = FermionChain( ?vars1, GA(rho1), ?vars2 );
 
-  id FermionChain( ?vars1, GA(rho?ALLLOR), GA(rho1?), GA(rho2?), GA(rho3?), GA(rho?ALLLOR), ?vars2 )
+  id FermionChain( ?vars1, GA(rho?LOR), GA(rho1?), GA(rho2?), GA(rho3?), GA(rho?LOR), ?vars2 )
     = -2*FermionChain( ?vars1, GA(rho3), GA(rho2), GA(rho1), ?vars2 )
      + (4-diim)*FermionChain( ?vars1, GA(rho1), GA(rho2), GA(rho3), ?vars2 );
 
-  id FermionChain( ?vars1, GA(rho?ALLLOR), GA(rho1?), GA(rho2?), GA(rho3?), GA(rho4?), GA(rho?ALLLOR), ?vars2 )
+  id FermionChain( ?vars1, GA(rho?LOR), GA(rho1?), GA(rho2?), GA(rho3?), GA(rho4?), GA(rho?LOR), ?vars2 )
     = 2*FermionChain( ?vars1, GA(rho2), GA(rho3), GA(rho4), GA(rho1), ?vars2 )
      + 2*FermionChain( ?vars1, GA(rho1), GA(rho4), GA(rho3), GA(rho2), ?vars2 )
      + (diim-4)*FermionChain( ?vars1, GA(rho1), GA(rho2), GA(rho3), GA(rho4), ?vars2 );
@@ -601,7 +601,7 @@ endrepeat;
 * move ki to the left of Ki in FermionChain
 *
 repeat;
-  id FermionChain(?vars1,GA(K1?MASSIVE),GA(k1?NULL),?vars2)
+  id FermionChain(?vars1,GA(K1?MASSIVE),GA(k1?kn),?vars2)
     = 2*SP(k1,K1)*FermionChain(?vars1,?vars2) - FermionChain(?vars1,GA(k1),GA(K1),?vars2);
 endrepeat;
 *
@@ -647,8 +647,8 @@ endrepeat;
 * Contract adjacent momentum slash or lorent indices in FermionChain
 *
 repeat;
-  id FermionChain(?vars1,GA(mom?ALLMOM),GA(mom?ALLMOM),?vars2) = FermionChain(?vars1,?vars2)*SP(mom,mom);
-  id FermionChain(?vars1,GA(rho?ALLLOR),GA(rho?ALLLOR),?vars2) = FermionChain(?vars1,?vars2)*diim;
+  id FermionChain(?vars1,GA(mom?MOM),GA(mom?MOM),?vars2) = FermionChain(?vars1,?vars2)*SP(mom,mom);
+  id FermionChain(?vars1,GA(rho?LOR),GA(rho?LOR),?vars2) = FermionChain(?vars1,?vars2)*diim;
 endrepeat;
 .sort
 
@@ -732,8 +732,8 @@ repeat;
   id ONEij(spa?,spa?) = 4;
   id ONEij(spa1?,spa2?)*ONEij(spa2?,spa3?) = ONEij(spa1,spa3);
 
-  id GAij(spa1?,spa2?,rho?ALLLOR) * GAij(spa2?,spa3?,rho?ALLLOR) = diim*ONEij(spa1,spa3);
-  id GAij(spa1?,spa2?,mom?ALLMOM) * GAij(spa2?,spa3?,mom?ALLMOM) = SP(mom,mom)*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,rho?LOR) * GAij(spa2?,spa3?,rho?LOR) = diim*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,mom?MOM) * GAij(spa2?,spa3?,mom?MOM) = SP(mom,mom)*ONEij(spa1,spa3);
   id GAij(spa1?,spa2?,rho?)*ONEij(spa3?,spa2?) = GAij(spa1,spa3,rho);
   id GAij(spa2?,spa1?,rho?)*ONEij(spa3?,spa2?) = GAij(spa3,spa1,rho);
 
@@ -761,13 +761,13 @@ endrepeat;
 *
 ***Here var? could be mom? or rho?
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa1?,spa2?,mom?) = FermionChain( ILSPSET[setint](int,?vars), GA(mom), spa2 );
-id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa1?,spa2?,rho?ALLLOR) = FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
+id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa1?,spa2?,rho?LOR) = FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PLij(spa1?,spa2?) = FermionChain( ILSPSET[setint](int,?vars), PL, spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PRij(spa1?,spa2?) = FermionChain( ILSPSET[setint](int,?vars), PR, spa2 );
 
 ***flip
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa2?,spa1?,mom?) = -FermionChain( ILSPSET[setint](int,?vars), GA(mom), spa2 );
-id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa2?,spa1?,rho?ALLLOR) = -FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
+id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa2?,spa1?,rho?LOR) = -FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PLij(spa2?,spa1?) = FermionChain( ILSPSET[setint](int,?vars), PL, spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PRij(spa2?,spa1?) = FermionChain( ILSPSET[setint](int,?vars), PR, spa2 );
 
@@ -778,14 +778,14 @@ id Spinor1?LSPSET[setint1](int1?,spa?,?var1)*Spinor2?RSPSET[setint2](int2?,spa?,
 repeat;
 ***Here var? could be mom? or rho?
   id FermionChain(?vars,spa1?)*GAij(spa1?,spa2?,mom?) = FermionChain( ?vars, GA(mom), spa2 );
-  id FermionChain(?vars,spa1?)*GAij(spa1?,spa2?,rho?ALLLOR) = FermionChain( ?vars, GA(rho), spa2 );
+  id FermionChain(?vars,spa1?)*GAij(spa1?,spa2?,rho?LOR) = FermionChain( ?vars, GA(rho), spa2 );
 
   id FermionChain(?vars,spa1?)*PLij(spa1?,spa2?) = FermionChain( ?vars, PL, spa2 );
   id FermionChain(?vars,spa1?)*PRij(spa1?,spa2?) = FermionChain( ?vars, PR, spa2 );
 
 ***flip
   id FermionChain(?vars,spa1?)*GAij(spa2?,spa1?,mom?) = -FermionChain( ?vars, GA(mom), spa2 );
-  id FermionChain(?vars,spa1?)*GAij(spa2?,spa1?,rho?ALLLOR) = -FermionChain( ?vars, GA(rho), spa2 );
+  id FermionChain(?vars,spa1?)*GAij(spa2?,spa1?,rho?LOR) = -FermionChain( ?vars, GA(rho), spa2 );
 
   id FermionChain(?vars,spa1?)*PLij(spa2?,spa1?) = FermionChain( ?vars, PL, spa2 );
   id FermionChain(?vars,spa1?)*PRij(spa2?,spa1?) = FermionChain( ?vars, PR, spa2 );
@@ -802,12 +802,12 @@ repeat;
   id once, GAij(spa1?,spa2?,var?) = Trace(GA(var),spa1,spa2);
   repeat;
     id Trace(?vars,spa1?,spa2?)*GAij(spa2?,spa3?,mom?) = Trace(?vars,GA(mom),spa1,spa3);
-    id Trace(?vars,spa1?,spa2?)*GAij(spa2?,spa3?,rho?ALLLOR) = Trace(?vars,GA(rho),spa1,spa3);
+    id Trace(?vars,spa1?,spa2?)*GAij(spa2?,spa3?,rho?LOR) = Trace(?vars,GA(rho),spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PLij(spa2?,spa3?) = Trace(?vars,PL,spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PRij(spa2?,spa3?) = Trace(?vars,PR,spa1,spa3);
 
     id Trace(?vars,spa1?,spa2?)*GAij(spa3?,spa2?,mom?) = -Trace(?vars,GA(mom),spa1,spa3);
-    id Trace(?vars,spa1?,spa2?)*GAij(spa3?,spa2?,rho?ALLLOR) = -Trace(?vars,GA(rho),spa1,spa3);
+    id Trace(?vars,spa1?,spa2?)*GAij(spa3?,spa2?,rho?LOR) = -Trace(?vars,GA(rho),spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PLij(spa3?,spa2?) = Trace(?vars,PL,spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PRij(spa3?,spa2?) = Trace(?vars,PR,spa1,spa3);
   endrepeat;
@@ -830,22 +830,22 @@ repeat;
   id FermionChain( ?vars1, GA(mom?), PL, ?vars2 ) = FermionChain( ?vars1, PR, GA(mom), ?vars2 );
   id FermionChain( ?vars1, GA(mom?), PR, ?vars2 ) = FermionChain( ?vars1, PL, GA(mom), ?vars2 );
 
-  id FermionChain( ?vars1, GA(rho?ALLLOR), PL, ?vars2 ) = FermionChain( ?vars1, PR, GA(rho), ?vars2 );
-  id FermionChain( ?vars1, GA(rho?ALLLOR), PR, ?vars2 ) = FermionChain( ?vars1, PL, GA(rho), ?vars2 );
+  id FermionChain( ?vars1, GA(rho?LOR), PL, ?vars2 ) = FermionChain( ?vars1, PR, GA(rho), ?vars2 );
+  id FermionChain( ?vars1, GA(rho?LOR), PR, ?vars2 ) = FermionChain( ?vars1, PL, GA(rho), ?vars2 );
 endrepeat;
 .sort
 
 
 repeat;
-  id FV(mom?,rho?ALLLOR)*FermionChain(?vars1,GA(rho?ALLLOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
-  id LMT(rho1?ALLLOR,rho2?ALLLOR)*FermionChain(?vars1,GA(rho1?ALLLOR),?vars2) = FermionChain(?vars1,GA(rho2),?vars2);
+  id FV(mom?,rho?LOR)*FermionChain(?vars1,GA(rho?LOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
+  id LMT(rho1?LOR,rho2?LOR)*FermionChain(?vars1,GA(rho1?LOR),?vars2) = FermionChain(?vars1,GA(rho2),?vars2);
 endrepeat;
 .sort
 
 repeat;
   id FermionChain(?vars1,GA(mom?),GA(mom?),?vars2) = SP(mom,mom)*FermionChain(?vars1,?vars2);
-  id SP(mom?NULL,mom?NULL) = 0;
-  id FermionChain(?vars1,GA(rho?ALLLOR),GA(rho?ALLLOR),?vars2) = diim*FermionChain(?vars1,?vars2);
+  id SP(mom?kn,mom?kn) = 0;
+  id FermionChain(?vars1,GA(rho?LOR),GA(rho?LOR),?vars2) = diim*FermionChain(?vars1,?vars2);
 
 *** Dirac equation for U and V (UB and VB) 
   id FermionChain( ?vars, GA(mom?), U(int?,mom?,0) ) = 0;
@@ -899,8 +899,8 @@ repeat;
   id ONEij(spa?,spa?) = 4;
   id ONEij(spa1?,spa2?)*ONEij(spa2?,spa3?) = ONEij(spa1,spa3);
 
-  id GAij(spa1?,spa2?,rho?ALLLOR) * GAij(spa2?,spa3?,rho?ALLLOR) = diim*ONEij(spa1,spa3);
-  id GAij(spa1?,spa2?,mom?ALLMOM) * GAij(spa2?,spa3?,mom?ALLMOM) = SP(mom,mom)*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,rho?LOR) * GAij(spa2?,spa3?,rho?LOR) = diim*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,mom?MOM) * GAij(spa2?,spa3?,mom?MOM) = SP(mom,mom)*ONEij(spa1,spa3);
   id GAij(spa1?,spa2?,rho?)*ONEij(spa3?,spa2?) = GAij(spa1,spa3,rho);
   id GAij(spa2?,spa1?,rho?)*ONEij(spa3?,spa2?) = GAij(spa3,spa1,rho);
 
@@ -928,13 +928,13 @@ endrepeat;
 *
 ***Here var? could be mom? or rho?
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa1?,spa2?,mom?) = FermionChain( ILSPSET[setint](int,?vars), GA(mom), spa2 );
-id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa1?,spa2?,rho?ALLLOR) = FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
+id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa1?,spa2?,rho?LOR) = FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PLij(spa1?,spa2?) = FermionChain( ILSPSET[setint](int,?vars), PL, spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PRij(spa1?,spa2?) = FermionChain( ILSPSET[setint](int,?vars), PR, spa2 );
 
 ***flip
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa2?,spa1?,mom?) = -FermionChain( ILSPSET[setint](int,?vars), GA(mom), spa2 );
-id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa2?,spa1?,rho?ALLLOR) = -FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
+id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa2?,spa1?,rho?LOR) = -FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PLij(spa2?,spa1?) = FermionChain( ILSPSET[setint](int,?vars), PL, spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PRij(spa2?,spa1?) = FermionChain( ILSPSET[setint](int,?vars), PR, spa2 );
 
@@ -945,14 +945,14 @@ id Spinor1?LSPSET[setint1](int1?,spa?,?var1)*Spinor2?RSPSET[setint2](int2?,spa?,
 repeat;
 ***Here var? could be mom? or rho?
   id FermionChain(?vars,spa1?)*GAij(spa1?,spa2?,?expr) = FermionChain( ?vars, GA(?expr), spa2 );
-  id FermionChain(?vars,spa1?)*GAij(spa1?,spa2?,rho?ALLLOR) = FermionChain( ?vars, GA(rho), spa2 );
+  id FermionChain(?vars,spa1?)*GAij(spa1?,spa2?,rho?LOR) = FermionChain( ?vars, GA(rho), spa2 );
 
   id FermionChain(?vars,spa1?)*PLij(spa1?,spa2?) = FermionChain( ?vars, PL, spa2 );
   id FermionChain(?vars,spa1?)*PRij(spa1?,spa2?) = FermionChain( ?vars, PR, spa2 );
 
 ***flip
   id FermionChain(?vars,spa1?)*GAij(spa2?,spa1?,?expr) = -FermionChain( ?vars, GA(?expr), spa2 );
-  id FermionChain(?vars,spa1?)*GAij(spa2?,spa1?,rho?ALLLOR) = -FermionChain( ?vars, GA(rho), spa2 );
+  id FermionChain(?vars,spa1?)*GAij(spa2?,spa1?,rho?LOR) = -FermionChain( ?vars, GA(rho), spa2 );
 
   id FermionChain(?vars,spa1?)*PLij(spa2?,spa1?) = FermionChain( ?vars, PL, spa2 );
   id FermionChain(?vars,spa1?)*PRij(spa2?,spa1?) = FermionChain( ?vars, PR, spa2 );
@@ -969,12 +969,12 @@ repeat;
   id once, GAij(spa1?,spa2?,?expr) = Trace(GA(?expr),spa1,spa2);
   repeat;
     id Trace(?vars,spa1?,spa2?)*GAij(spa2?,spa3?,?expr) = Trace(?vars,GA(?expr),spa1,spa3);
-    id Trace(?vars,spa1?,spa2?)*GAij(spa2?,spa3?,rho?ALLLOR) = Trace(?vars,GA(rho),spa1,spa3);
+    id Trace(?vars,spa1?,spa2?)*GAij(spa2?,spa3?,rho?LOR) = Trace(?vars,GA(rho),spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PLij(spa2?,spa3?) = Trace(?vars,PL,spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PRij(spa2?,spa3?) = Trace(?vars,PR,spa1,spa3);
 
     id Trace(?vars,spa1?,spa2?)*GAij(spa3?,spa2?,?expr) = -Trace(?vars,GA(?expr),spa1,spa3);
-    id Trace(?vars,spa1?,spa2?)*GAij(spa3?,spa2?,rho?ALLLOR) = -Trace(?vars,GA(rho),spa1,spa3);
+    id Trace(?vars,spa1?,spa2?)*GAij(spa3?,spa2?,rho?LOR) = -Trace(?vars,GA(rho),spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PLij(spa3?,spa2?) = Trace(?vars,PL,spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PRij(spa3?,spa2?) = Trace(?vars,PR,spa1,spa3);
   endrepeat;
@@ -997,22 +997,22 @@ repeat;
 **id FermionChain( ?vars1, GA(mom?), PL, ?vars2 ) = FermionChain( ?vars1, PR, GA(mom), ?vars2 );
 **id FermionChain( ?vars1, GA(mom?), PR, ?vars2 ) = FermionChain( ?vars1, PL, GA(mom), ?vars2 );
 
-**id FermionChain( ?vars1, GA(rho?ALLLOR), PL, ?vars2 ) = FermionChain( ?vars1, PR, GA(rho), ?vars2 );
-**id FermionChain( ?vars1, GA(rho?ALLLOR), PR, ?vars2 ) = FermionChain( ?vars1, PL, GA(rho), ?vars2 );
+**id FermionChain( ?vars1, GA(rho?LOR), PL, ?vars2 ) = FermionChain( ?vars1, PR, GA(rho), ?vars2 );
+**id FermionChain( ?vars1, GA(rho?LOR), PR, ?vars2 ) = FermionChain( ?vars1, PL, GA(rho), ?vars2 );
 endrepeat;
 .sort
 
 
 repeat;
-  id FV(mom?,rho?ALLLOR)*FermionChain(?vars1,GA(rho?ALLLOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
-  id LMT(rho1?ALLLOR,rho2?ALLLOR)*FermionChain(?vars1,GA(rho1?ALLLOR),?vars2) = FermionChain(?vars1,GA(rho2),?vars2);
+  id FV(mom?,rho?LOR)*FermionChain(?vars1,GA(rho?LOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
+  id LMT(rho1?LOR,rho2?LOR)*FermionChain(?vars1,GA(rho1?LOR),?vars2) = FermionChain(?vars1,GA(rho2),?vars2);
 endrepeat;
 .sort
 
 repeat;
   id FermionChain(?vars1,GA(mom?),GA(mom?),?vars2) = SP(mom,mom)*FermionChain(?vars1,?vars2);
-  id SP(mom?NULL,mom?NULL) = 0;
-  id FermionChain(?vars1,GA(rho?ALLLOR),GA(rho?ALLLOR),?vars2) = diim*FermionChain(?vars1,?vars2);
+  id SP(mom?kn,mom?kn) = 0;
+  id FermionChain(?vars1,GA(rho?LOR),GA(rho?LOR),?vars2) = diim*FermionChain(?vars1,?vars2);
 
 *** Dirac equation for U and V (UB and VB) 
   id FermionChain( ?vars, GA(mom?), U(int?,mom?,0) ) = 0;
