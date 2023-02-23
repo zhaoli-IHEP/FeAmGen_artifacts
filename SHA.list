@@ -6,3 +6,9 @@ julia> calc_sha256("color.frm")
 julia> calc_sha256("contractor.frm")
 "6df89e013cbd3047139e66aa016161b6249a3309425938856f1961cce037462a"
 
+julia> calc_sha256("generate_diagram_pdf.jl")
+"c0124e5539755d1f161efa53d7b5e0b87973ab4920bc43f75d593aa246dfb4bc"
+
+julia> calc_sha256("tikz-feynman.sty")
+"716991102a8e9a7b0beb3e7b4a564882b444d18f89c4a4694387394c7594a3e8"
+
