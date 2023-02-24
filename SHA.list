@@ -1,14 +1,13 @@
-julia> using SymEngineExt
 
-julia> calc_sha256("color.frm")
-"89b59de36758eb45e4dc08a3534aef4b42afff1491b9c46b4f999b74194f44be"
+julia> using Tar, Inflate, SHA
 
-julia> calc_sha256("contractor.frm")
-"4aec00d9c5e72e7cdfef9e7f04f4cb778a9bc1a73cff2d3b4998da6c2610510a"
+julia> filename = "utils.tar.gz"
+"utils.tar.gz"
 
-julia> calc_sha256("generate_diagram_pdf.jl")
-"c0124e5539755d1f161efa53d7b5e0b87973ab4920bc43f75d593aa246dfb4bc"
+julia> println("sha256: ", bytes2hex(open(sha256, filename)))
+sha256: d6ce2355b2cb26faced1a5fa05e83a32c71e7127d702113efb6c99f1180823d9
 
-julia> calc_sha256("tikz-feynman.sty")
-"716991102a8e9a7b0beb3e7b4a564882b444d18f89c4a4694387394c7594a3e8"
+julia> println("git-tree-sha1: ", Tar.tree_hash(IOBuffer(inflate_gzip(filename))))
+git-tree-sha1: 97550e35f876b020ec31dfb8326d945103a2dcc3
+
 
