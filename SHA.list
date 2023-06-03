@@ -1,0 +1,8 @@
+
+# tar cjvf utils.tar.bz2 Models scripts 
+
+> julica calc_SHA.jl
+git-tree-sha1: 1e24e9cb6bee7715ed0091d3575c14ad43a77143
+sha256: 40e147562be18a8a350a134151c5e45fd2631f3a7761768ea9c84977aa4b322f
+
+
